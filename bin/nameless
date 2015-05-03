@@ -1,0 +1,68 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var fs = require('fs'),
+		path = require('path'),
+		colors = require('colors'),
+		ncp = require('ncp');
+
+
+process.title = 'nameless';
+console.log("[" + "nameless".green + "] Launching..");
+
+// Crude mechanism to stop grunt exiting before tasks are completed
+global.completeCount = 0
+
+// Store our current project directory
+var cwd = process.cwd();
+global.namelesscwd = cwd;
+
+// Locate our nameless grunt folder
+var namelessFolder = path.join(__dirname, '../');
+global.namelessFolder = namelessFolder;
+
+process.chdir(namelessFolder);
+
+// Are we requesting a scaffold setup?
+if (process.argv.length >= 3 && process.argv[2] == 'setup')
+{
+	console.log("[" + "nameless".green + "] Setting up project scaffold..");
+
+	ncp(path.join(namelessFolder, 'setup'), cwd, function (err) {
+		if (err)
+			return console.error("[" + "nameless".green + "] Unable to setup scaffold - " + err[0].message.red);
+
+		console.log("[" + "nameless".green + "] Done!");
+	});
+}
+else
+{
+	// Load our local utilities
+	global.configutil = require('../util/config');
+	global.loghook = require('../util/loghook');
+	global.taskloader = require('../util/taskloader');
+
+	// Make sure our end tasks are executed
+	if (isSpecificLaunch())
+		process.argv = process.argv.concat(['task-waitexit']);
+
+	// Require and run grunt
+	require('grunt').cli();
+}
+
+// Determines whether specific tasks have been provided to launch
+function isSpecificLaunch() {
+	if (process.argv.length === 2)
+		return false;
+
+	// Check whether they're all arguments
+	var taskArg = false;
+
+	process.argv.forEach(function (taskName, idx) {
+		if (idx > 1 && taskName[0] !== '-')
+			taskArg = true;
+	});
+
+	return taskArg;
+}
