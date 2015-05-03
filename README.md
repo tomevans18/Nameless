@@ -2,19 +2,6 @@
 
 Simple front end build automation.
 
-## EditorConfig
-
-"EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs. The EditorConfig project consists of a file format for defining coding styles and a collection of text editor plugins that enable editors to read the file format and adhere to defined styles. EditorConfig files are easily readable and they work nicely with version control systems."
-
-###EditorConfig Plugins
-
-- [**All plugins**](http://editorconfig.org/#download)
-- [**Visual Studio**](https://github.com/editorconfig/editorconfig-visualstudio#readme)
-- [**Sublime**](https://github.com/sindresorhus/editorconfig-sublime#readme) - Install ```EditorConfig``` with [Package Control](https://packagecontrol.io) and restart Sublime
-- [Atom](https://github.com/sindresorhus/atom-editorconfig#readme) - Settings → Packages → Search for ```editorconfig```
-- [**Notepad++**](https://github.com/editorconfig/editorconfig-notepad-plus-plus#readme)
-- [**Brakets++**](https://github.com/kidwm/brackets-editorconfig/)
-
 
 ## Features
 
@@ -41,7 +28,14 @@ Simple front end build automation.
 	- *Scaffold* - nameless can generate a simple boilerplate file structure for easily starting new projects.
 	- *Notifications* - If you are on a mac, or have [Growl](http://www.growlforwindows.com/gfw/) installed on windows, nameless gives popup notifications informing you of errors or successful builds.
 
-- **Tasks**
+- **EditorConfig** - "EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs. The EditorConfig project consists of a file format for defining coding styles and a collection of text editor plugins that enable editors to read the file format and adhere to defined styles. EditorConfig files are easily readable and they work nicely with version control systems."
+	- **EditorConfig Plugins**
+		- [**All plugins**](http://editorconfig.org/#download)
+		- [**Visual Studio**](https://github.com/editorconfig/editorconfig-visualstudio#readme)
+		- [**Sublime**](https://github.com/sindresorhus/editorconfig-sublime#readme) - Install ```EditorConfig``` with [Package Control](https://packagecontrol.io) and restart Sublime
+		- [Atom](https://github.com/sindresorhus/atom-editorconfig#readme) - Settings → Packages → Search for ```editorconfig```
+		- [**Notepad++**](https://github.com/editorconfig/editorconfig-notepad-plus-plus#readme)
+		- [**Brakets++**](https://github.com/kidwm/brackets-editorconfig/)
 
 
 
